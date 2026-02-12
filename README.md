@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
+# ⚡ Mohit Jain | Full Stack & AI Engineer
 
-## Project info
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-00fff9?style=for-the-badge&logo=vercel&logoColor=black)](https://your-portfolio-link.vercel.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/mohitjain-27)
+[![Email](https://img.shields.io/badge/Email-Contact_Me-d14836?style=for-the-badge&logo=gmail)](mailto:mohit270900@gmail.com)
 
-**URL**: https://lovable.dev/projects/a0198077-6700-4e88-88e9-f50791c985e7
+> **CS Master's Student @ Arizona State University** specializing in Scalable Web Systems, Generative AI, and Game Theory.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 About Me
 
-**Use Lovable**
+I am a software engineer who builds things that live on the edge of **AI** and **Real-time Interaction**. From engineering multiplayer game servers to deploying fraud detection systems for **42M+ users**, I focus on performance, scalability, and clean architecture.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a0198077-6700-4e88-88e9-f50791c985e7) and start prompting.
+Currently bridging the gap between **Probabilistic ML** and **Full Stack Development**.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| **Category** | **Technologies** |
+| :--- | :--- |
+| **Languages** | ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white) ![SQL](https://img.shields.io/badge/-SQL-4479A1?logo=postgresql&logoColor=white) |
+| **Full Stack** | ![Vue.js](https://img.shields.io/badge/-Vue.js-4FC08D?logo=vue.js&logoColor=white) ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black) ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white) ![Socket.io](https://img.shields.io/badge/-Socket.io-010101?logo=socket.io&logoColor=white) |
+| **AI & ML** | ![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?logo=chainlink&logoColor=white) ![PyTorch](https://img.shields.io/badge/-PyTorch-EE4C2C?logo=pytorch&logoColor=white) ![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?logo=opencv&logoColor=white) ![Scikit-Learn](https://img.shields.io/badge/-Scikit_Learn-F7931E?logo=scikit-learn&logoColor=white) |
+| **Cloud & DevOps** | ![AWS](https://img.shields.io/badge/-AWS-232F3E?logo=amazon-aws&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white) |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## ⚔️ Featured Projects
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 1. [Wordle Royale](https://wordle-royale-mu.vercel.app/) 🎮
+> **"Wordle meets Battle Royale."** A live multiplayer browser game with real-time combat mechanics.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+* **Tech:** Vue.js, Node.js, Socket.io, WebSockets
+* **Key Feature:** Architected a decoupled frontend/backend system using **Socket.io** for sub-millisecond, bi-directional state synchronization.
+* **Logic:** Implemented circular target dependencies (Doubly Linked Lists) and dynamic looting mechanics.
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 2. [Nike Smart Bot](https://github.com/MohitJain-git/nike-bot) 👟
+> **An intelligent shopping assistant that knows more than the user.**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+* **Tech:** LangChain, Python, ETL, SQL
+* **Key Feature:** Architected a **LangChain agent** to interpret natural language queries for personalized recommendations.
+* **Automation:** Built an ETL pipeline to scrape Nike.com daily, syncing real-time inventory and triggering price-drop alerts.
 
-**Edit a file directly in GitHub**
+### 3. [Ultimate Texas Hold'em Bot](https://github.com/MohitJain-git/UltimateTexasHoldem) ♠️
+> **Beating the house with Math.**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+* **Tech:** Pyro, Monte Carlo Simulations, CFR (Counterfactual Regret Minimization)
+* **Impact:** Engineered a probabilistic bot trained on **1M+ simulations**.
+* **Result:** Outperformed human players by **2.6x** in controlled stochastic simulations using Game Theory optimal strategies.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 💼 Professional Experience
 
-## What technologies are used for this project?
+**Software Engineer @ Jio Platforms Ltd.** (Sept 2022 - June 2024)
+* Built and deployed **Facial Recognition & Fraud Detection** systems serving **42M+ users**.
+* Optimized vector retrieval speeds by **5x** using Elasticsearch.
+* Achieved **96% accuracy** in face verification models using PyTorch & InsightFace.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## ⚡ How to Run This Portfolio
 
-## How can I deploy this project?
+This website is built with **React** and **Tailwind CSS**.
 
-Simply open [Lovable](https://lovable.dev/projects/a0198077-6700-4e88-88e9-f50791c985e7) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. **Clone the repo**
+   ```bash
+   git clone [https://github.com/MohitJain-git/portfolio.git](https://github.com/MohitJain-git/portfolio.git)
