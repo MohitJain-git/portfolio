@@ -2,27 +2,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code, Database, Cloud, Brain } from "lucide-react";
 
+
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming Languages",
+      title: "Languages & Core",
       icon: <Code className="h-6 w-6" />,
-      skills: ["Python", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"]
+      skills: ["Python", "JavaScript", "TypeScript", "SQL", "HTML5", "CSS3", "C++"]
     },
     {
-      title: "AI/ML & Frameworks",
+      title: "AI/ML & Data Science",
       icon: <Brain className="h-6 w-6" />,
-      skills: ["PyTorch", "NumPy", "Scikit-learn", "OpenCV", "FastAPI", "Flask", "React", "Django", "Node.js"]
+      skills: ["LangChain", "PyTorch", "Pyro", "OpenCV", "Scikit-learn", "Pandas", "NumPy", "CFR - Reinforcement Learning"]
     },
     {
-      title: "Development Tools",
-      icon: <Database className="h-6 w-6" />,
-      skills: ["Git", "Docker", "MySQL", "MongoDB", "Elasticsearch", "AWS SageMaker", "AWS Lambda"]
+      title: "Full Stack Frameworks",
+      icon: <Database className="h-6 w-6" />, // You might want to switch this icon to <Layout /> if available
+      skills: ["React", "Node.js","Vue.js", "FastAPI", "Django", "Socket.io", "Flask"]
     },
     {
-      title: "Cloud & Platforms",
+      title: "Cloud, DevOps & Tools",
       icon: <Cloud className="h-6 w-6" />,
-      skills: ["AWS EC2", "AWS S3", "Windows", "Linux", "Ubuntu", "Amazon Linux"]
+      skills: ["AWS (SageMaker, Lambda, EC2, S3, RDS)", "Docker", "Kubernetes", "Git", "Redis", "Elasticsearch", "PostgreSQL", "MongoDB"]
     }
   ];
 

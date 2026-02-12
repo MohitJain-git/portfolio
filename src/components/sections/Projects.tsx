@@ -6,7 +6,7 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "DocRx - Document Processing System",
+      title: "DocFix - Document Processing System",
       description: "Deployed a website using Django, offering document-related features such as text summarization, sentiment analysis, keyword extraction, grammar checking, and web scraping. Integrated AI services through FastAPI.",
       technologies: ["Django", "FastAPI", "Python", "AI/ML", "NLP"],
       date: "May 2022",
@@ -17,13 +17,35 @@ const Projects = () => {
       }
     },
     {
-      title: "BERT-based Contextual Understanding",
-      description: "Applied stemming and lemmatization for data preprocessing and implemented the BERT model to enable contextual understanding in natural language processing tasks.",
-      technologies: ["Python", "BERT", "NLP", "Machine Learning", "Data Processing"],
-      date: "2022",
-      type: "Research Project",
+      title: "Wordle Royale",
+      description: "Architected a live multiplayer Battle Royale using Vue.js, Node.js, and Socket.io for sub-millisecond, bi-directional state synchronization. Engineered complex game mechanics including circular target logic and dynamic looting.",
+      technologies: ["Vue.js", "Node.js", "Socket.io", "WebSockets"],
+      date: "Jan 2026",
+      type: "Full Stack Game",
       links: {
-        github: "#"
+        demo: "https://wordle-royale-mu.vercel.app/",
+        github: "" // Update if different
+      }
+    },
+    {
+      title: "Nike Smart Bot",
+      description: "Architected a LangChain agent to interpret natural language queries for personalized shoe recommendations. Built an automated ETL pipeline to sync real-time inventory and trigger instant user alerts for price drops.",
+      technologies: ["LangChain", "Python", "ETL", "SQL", "Web Scraping"],
+      date: "Nov 2025",
+      type: "AI Agent",
+      links: {
+        github: "" // Update if different
+      }
+    },
+    {
+      title: "Ultimate Texas Hold'em Bot",
+      description: "Engineered a probabilistic poker bot using Pyro and Monte Carlo (1M+ iterations) to maximize EV. Implemented Counterfactual Regret Minimization (CFR) to outperform human players by 2.6x in simulations.",
+      technologies: ["Pyro", "Monte Carlo", "Game Theory", "Python", "CFR"],
+      date: "Dec 2024",
+      type: "ML & Algorithms",
+      links: {
+        demo: "",
+        github: "https://github.com/MohitJain-git/UltimateTexasHoldem"
       }
     },
     {

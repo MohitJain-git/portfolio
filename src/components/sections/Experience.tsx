@@ -5,15 +5,15 @@ import { CalendarIcon, MapPinIcon } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
-      title: "SDE-I",
-      company: "Vara Beauty Inc, USA (Remote)",
-      period: "June 2025 – August 2025",
+      title: "AI/ML Engineer Intern",
+      company: "Vera Beauty Inc, USA (Remote)",
+      period: "May 2025 – July 2025",
       type: "Summer Internship",
       description: "Built an in-house computer vision model to extract facial structural ratios, integrating it into the app's onboarding flow to recommend personalized aesthetic procedures.",
       skills: ["Computer Vision", "Python", "Machine Learning", "Mobile Integration"]
     },
     {
-      title: "Lead Engineer and Founder Developer",
+      title: "SDE I",
       company: "Jio Platforms Limited, Mumbai, India",
       period: "September 2022 – June 2024",
       type: "Full-time",
