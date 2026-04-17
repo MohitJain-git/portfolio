@@ -32,13 +32,15 @@ Currently bridging the gap between **Probabilistic ML** and **Full Stack Develop
 ### 1. [Wordle Royale](https://wordle-royale-mu.vercel.app/) 🎮
 > **"Wordle meets Battle Royale."** A live multiplayer browser game with real-time combat mechanics.
 
+* **[Code](https://github.com/MohitJain-git/wordle-royale)** | **[Demo](https://wordle-royale-mu.vercel.app/)**
 * **Tech:** Vue.js, Node.js, Socket.io, WebSockets
 * **Key Feature:** Architected a decoupled frontend/backend system using **Socket.io** for sub-millisecond, bi-directional state synchronization.
 * **Logic:** Implemented circular target dependencies (Doubly Linked Lists) and dynamic looting mechanics.
 
-### 2. [Nike Smart Bot](https://github.com/MohitJain-git/nike-bot) 👟
+### 2. [Shoe La La - Nike Smart Bot](https://github.com/dnanava1/shoe-la-la) 👟
 > **An intelligent shopping assistant that knows more than the user.**
 
+* **[Code](https://github.com/dnanava1/shoe-la-la)**
 * **Tech:** LangChain, Python, ETL, SQL
 * **Key Feature:** Architected a **LangChain agent** to interpret natural language queries for personalized recommendations.
 * **Automation:** Built an ETL pipeline to scrape Nike.com daily, syncing real-time inventory and triggering price-drop alerts.
@@ -46,9 +48,24 @@ Currently bridging the gap between **Probabilistic ML** and **Full Stack Develop
 ### 3. [Ultimate Texas Hold'em Bot](https://github.com/MohitJain-git/UltimateTexasHoldem) ♠️
 > **Beating the house with Math.**
 
+* **[Code](https://github.com/MohitJain-git/UltimateTexasHoldem)**
 * **Tech:** Pyro, Monte Carlo Simulations, CFR (Counterfactual Regret Minimization)
 * **Impact:** Engineered a probabilistic bot trained on **1M+ simulations**.
 * **Result:** Outperformed human players by **2.6x** in controlled stochastic simulations using Game Theory optimal strategies.
+
+### 4. [Vera Beauty - Computer Vision for Aesthetic Analysis](https://verabeauty.app/) 💄
+> **AI-powered beauty and skincare analysis using computer vision.**
+
+* **[Demo](https://verabeauty.app/)**
+* **Tech:** Computer Vision, AI, Image Processing
+* **Key Feature:** Advanced aesthetic analysis for beauty and skincare recommendations.
+
+### 5. [DocFix](https://github.com/MohitJain-git/DocFix) 📄
+> **Document processing and fixing automation.**
+
+* **[Code](https://github.com/MohitJain-git/DocFix)**
+* **Tech:** Document Processing, Automation
+* **Key Feature:** Intelligent document correction and processing system.
 
 ---
 
@@ -67,4 +84,4 @@ This website is built with **React** and **Tailwind CSS**.
 
 1. **Clone the repo**
    ```bash
-   git clone [https://github.com/MohitJain-git/portfolio.git](https://github.com/MohitJain-git/portfolio.git)
+   git clone https://github.com/MohitJain-git/portfolio.git

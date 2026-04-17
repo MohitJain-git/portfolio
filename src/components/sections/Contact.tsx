@@ -1,15 +1,17 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
 
 const Contact = () => {
+  const email = "mohit270900@gmail.com";
+  const subject = "Let's Connect - Portfolio Inquiry";
+  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+
   return (
     <section id="contact" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent text-glow">
             Get In Touch
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -25,17 +27,20 @@ const Contact = () => {
                 <CardTitle className="text-xl text-foreground">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-center gap-3">
+                <a 
+                  href={mailtoLink}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-smooth"
+                >
                   <div className="p-2 rounded-lg bg-primary/20 text-primary">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground">mohit270900@gmail.com</p>
+                    <p className="text-foreground hover:text-primary transition-smooth">{email}</p>
                   </div>
-                </div>
+                </a>
                 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 p-3">
                   <div className="p-2 rounded-lg bg-primary/20 text-primary">
                     <Phone className="h-5 w-5" />
                   </div>
@@ -45,13 +50,13 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 p-3">
                   <div className="p-2 rounded-lg bg-primary/20 text-primary">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground">Tempe, AZ</p>
+                    <p className="text-foreground">Tempe, Arizona, USA</p>
                   </div>
                 </div>
               </CardContent>
@@ -72,7 +77,9 @@ const Contact = () => {
                   <span className="text-foreground">LinkedIn Profile</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://github.com/MohitJain-git"
+                  target="_blank" 
+                  rel="noopener noreferrer" 
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-smooth"
                 >
                   <Github className="h-5 w-5 text-primary" />
@@ -82,39 +89,36 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Contact Form */}
+          {/* Quick Contact */}
           <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-xl text-foreground">Send a Message</CardTitle>
+              <CardTitle className="text-xl text-foreground">Send Me an Email</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-foreground">Name</label>
-                  <Input placeholder="Your name" className="mt-1" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground">Email</label>
-                  <Input type="email" placeholder="your.email@example.com" className="mt-1" />
-                </div>
-              </div>
-              
+            <CardContent className="space-y-6">
               <div>
-                <label className="text-sm font-medium text-foreground">Subject</label>
-                <Input placeholder="What's this about?" className="mt-1" />
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground">Message</label>
-                <Textarea 
-                  placeholder="Tell me about your project or opportunity..." 
-                  className="mt-1 min-h-[120px]"
-                />
+                <p className="text-foreground/80 mb-6">
+                  Have a project in mind or want to collaborate? Feel free to reach out directly via email. I typically respond within 24 hours.
+                </p>
+                <Button 
+                  asChild
+                  className="w-full bg-gradient-primary hover:shadow-glow-primary transition-smooth"
+                >
+                  <a href={mailtoLink} className="flex items-center justify-center gap-2">
+                    <Send className="h-4 w-4" />
+                    Send Email
+                  </a>
+                </Button>
               </div>
 
-              <Button className="w-full bg-gradient-primary hover:shadow-glow-primary transition-smooth">
-                Send Message
-              </Button>
+              <div className="pt-6 border-t border-border">
+                <h3 className="font-semibold text-foreground mb-3">What to Include:</h3>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Your name and organization</li>
+                  <li>• What you'd like to discuss</li>
+                  <li>• Your contact information</li>
+                  <li>• Any relevant links or details</li>
+                </ul>
+              </div>
             </CardContent>
           </Card>
         </div>

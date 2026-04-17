@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Target, Gamepad2 } from "lucide-react";
-import BullsAndBears from "@/components/games/BullsAndBears";
+import { Gamepad2 } from "lucide-react";
+import BullsAndCows from "@/components/games/BullsAndCows";
 
 const Games = () => {
   const [activeGame, setActiveGame] = useState<string | null>(null);
 
   const games = [
     {
-      id: "bulls-and-bears",
-      title: "Bulls and Bears",
-      description: "A challenging word-guessing game. Guess the 4-letter word using bulls (correct position) and bears (wrong position) as clues.",
-      icon: <Target className="h-8 w-8" />,
+      id: "bulls-and-cows",
+      title: "Bulls and Cows",
+      description: "A challenging word-guessing game. Guess the 4-letter word using bulls (correct position) and cows (wrong position) as clues.",
+      icon: (
+        <div className="flex gap-1">
+          <span className="text-2xl font-bold text-green-500">B</span>
+          <span className="text-2xl font-bold text-yellow-500">C</span>
+        </div>
+      ),
       difficulty: "Medium",
       players: "1 Player"
     }
@@ -22,7 +27,7 @@ const Games = () => {
     <section id="games" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent text-glow">
             Interactive Games
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -72,7 +77,7 @@ const Games = () => {
                 ← Back to Games
               </Button>
             </div>
-            {activeGame === "bulls-and-bears" && <BullsAndBears />}
+            {activeGame === "bulls-and-cows" && <BullsAndCows />}
           </div>
         )}
       </div>

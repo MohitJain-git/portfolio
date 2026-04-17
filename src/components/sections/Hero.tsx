@@ -22,7 +22,7 @@ const Hero = () => {
         
         {/* The Tagline */}
         <p className="tagline text-gray-500 text-sm tracking-widest mt-2 uppercase">
-          Full Stack • AI • Game Dev
+          Full Stack Developer • AI Enthusiast • MS in Computer Science
         </p>
       </div>
       {/* --- END OF NEW CONTENT --- */}

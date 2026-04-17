@@ -12,8 +12,7 @@ const Projects = () => {
       date: "May 2022",
       type: "Final Year Project",
       links: {
-        demo: "#",
-        github: "#"
+        github: "https://github.com/MohitJain-git/DocFix"
       }
     },
     {
@@ -24,17 +23,17 @@ const Projects = () => {
       type: "Full Stack Game",
       links: {
         demo: "https://wordle-royale-mu.vercel.app/",
-        github: "" // Update if different
+        github: "https://github.com/MohitJain-git/wordle-royale"
       }
     },
     {
-      title: "Nike Smart Bot",
+      title: "Shoe La La - Nike Smart Bot",
       description: "Architected a LangChain agent to interpret natural language queries for personalized shoe recommendations. Built an automated ETL pipeline to sync real-time inventory and trigger instant user alerts for price drops.",
       technologies: ["LangChain", "Python", "ETL", "SQL", "Web Scraping"],
       date: "Nov 2025",
       type: "AI Agent",
       links: {
-        github: "" // Update if different
+        github: "https://github.com/dnanava1/shoe-la-la"
       }
     },
     {
@@ -44,7 +43,6 @@ const Projects = () => {
       date: "Dec 2024",
       type: "ML & Algorithms",
       links: {
-        demo: "",
         github: "https://github.com/MohitJain-git/UltimateTexasHoldem"
       }
     },
@@ -55,7 +53,6 @@ const Projects = () => {
       date: "2022-2024",
       type: "Enterprise Project",
       links: {
-        demo: "#"
       }
     },
     {
@@ -65,7 +62,7 @@ const Projects = () => {
       date: "2025",
       type: "Internship Project",
       links: {
-        demo: "#"
+        demo: "https://verabeauty.app/"
       }
     }
   ];
@@ -74,7 +71,7 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent text-glow">
             Featured Projects
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -82,7 +79,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto glass-panel">
           {projects.map((project, index) => (
             <Card key={index} className="bg-card border-border hover:shadow-glow-accent transition-smooth group">
               <CardHeader>
@@ -110,16 +107,20 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-2 pt-2">
-                  {project.links.demo && (
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <ExternalLink className="h-4 w-4" />
-                      Demo
+                  {project.links.demo && project.links.demo !== "#" && (
+                    <Button variant="outline" size="sm" className="gap-2" asChild>
+                      <a href={project.links.demo} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4" />
+                        Demo
+                      </a>
                     </Button>
                   )}
-                  {project.links.github && (
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Github className="h-4 w-4" />
-                      Code
+                  {project.links.github && project.links.github !== "#" && (
+                    <Button variant="outline" size="sm" className="gap-2" asChild>
+                      <a href={project.links.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4" />
+                        Code
+                      </a>
                     </Button>
                   )}
                 </div>

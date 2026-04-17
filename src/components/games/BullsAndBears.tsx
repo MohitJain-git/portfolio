@@ -3,20 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { RotateCcw, Trophy, Target } from "lucide-react";
+import { RotateCcw, Trophy } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface GameState {
   targetWord: string;
   guesses: string[];
-  feedback: Array<{ bulls: number; bears: number }>;
+  feedback: Array<{ bulls: number; cows: number }>;
   currentGuess: string;
   gameWon: boolean;
   gameOver: boolean;
   attempts: number;
 }
 
-const BullsAndBears = () => {
+const BullsAndCows = () => {
   const { toast } = useToast();
   const [gameState, setGameState] = useState<GameState>({
     targetWord: "",
@@ -28,17 +28,50 @@ const BullsAndBears = () => {
     attempts: 0,
   });
 
+  const [wordList, setWordList] = useState<string[]>([]);
+  const [validWords, setValidWords] = useState<Set<string>>(new Set());
+
   const MAX_ATTEMPTS = 8;
 
-  // Word list for 4-letter words
-  const wordList = [
-    "PLAY", "CODE", "GAME", "LOVE", "BEAR", "BULL", "WORD", "STAR", 
-    "MOON", "FIRE", "RAIN", "WIND", "BOOK", "TREE", "FISH", "BIRD",
-    "ROCK", "GOLD", "BLUE", "RED", "MIND", "SOUL", "HOPE", "DAWN",
-    "HERO", "CAKE", "JUMP", "CALM", "FLOW", "WAVE", "PEAK", "SAGE"
-  ];
+  // Load word lists on component mount
+  useEffect(() => {
+    const loadWordLists = async () => {
+      try {
+        // Load common words for target selection
+        const commonWordsResponse = await fetch('/common_4_letter_words.txt');
+        const commonWordsText = await commonWordsResponse.text();
+        const commonWords = commonWordsText.trim().split('\n').map(word => word.trim().toUpperCase()).filter(word => word.length === 4);
+        
+        // Load all valid words for validation
+        const allWordsResponse = await fetch('/all_words.txt');
+        const allWordsText = await allWordsResponse.text();
+        const allWords = allWordsText.trim().split(/\s+/).filter(word => word.length === 4);
+        
+        setWordList(commonWords);
+        setValidWords(new Set(allWords));
+        
+        // Initialize game with first word
+        if (commonWords.length > 0) {
+          setGameState(prev => ({
+            ...prev,
+            targetWord: commonWords[Math.floor(Math.random() * commonWords.length)]
+          }));
+        }
+      } catch (error) {
+        console.error('Failed to load word lists:', error);
+        toast({
+          title: "Error",
+          description: "Failed to load word lists. Please refresh the page.",
+          variant: "destructive",
+        });
+      }
+    };
+
+    loadWordLists();
+  }, [toast]);
 
   const generateRandomWord = () => {
+    if (wordList.length === 0) return "";
     return wordList[Math.floor(Math.random() * wordList.length)];
   };
 
@@ -54,13 +87,9 @@ const BullsAndBears = () => {
     });
   };
 
-  useEffect(() => {
-    resetGame();
-  }, []);
-
   const calculateFeedback = (guess: string, target: string) => {
     let bulls = 0;
-    let bears = 0;
+    let cows = 0;
     
     const targetChars = target.split('');
     const guessChars = guess.split('');
@@ -76,12 +105,12 @@ const BullsAndBears = () => {
       }
     }
 
-    // Count bears (correct letter, wrong position)
+    // Count cows (correct letter, wrong position)
     for (let i = 0; i < 4; i++) {
       if (!usedGuessIndices.has(i)) {
         for (let j = 0; j < 4; j++) {
           if (!usedTargetIndices.has(j) && guessChars[i] === targetChars[j]) {
-            bears++;
+            cows++;
             usedTargetIndices.add(j);
             break;
           }
@@ -89,7 +118,7 @@ const BullsAndBears = () => {
       }
     }
 
-    return { bulls, bears };
+    return { bulls, cows };
   };
 
   const handleSubmitGuess = () => {
@@ -102,16 +131,17 @@ const BullsAndBears = () => {
       return;
     }
 
-    if (!/^[A-Za-z]+$/.test(gameState.currentGuess)) {
+    const guess = gameState.currentGuess.toUpperCase();
+    
+    if (!validWords.has(guess)) {
       toast({
-        title: "Invalid Guess",
-        description: "Please enter only letters.",
+        title: "Invalid Word",
+        description: "Please enter a valid 4-letter word.",
         variant: "destructive",
       });
       return;
     }
 
-    const guess = gameState.currentGuess.toUpperCase();
     const feedback = calculateFeedback(guess, gameState.targetWord);
     const newAttempts = gameState.attempts + 1;
     const won = feedback.bulls === 4;
@@ -152,11 +182,12 @@ const BullsAndBears = () => {
       <Card className="bg-card border-border">
         <CardHeader className="text-center">
           <CardTitle className="flex items-center justify-center gap-3 text-2xl">
-            <Target className="h-8 w-8 text-primary" />
-            Bulls and Bears
+            <span className="text-3xl font-bold text-green-500">B</span>
+            <span className="text-3xl font-bold text-yellow-500">C</span>
+            Bulls and Cows
           </CardTitle>
           <p className="text-muted-foreground">
-            Guess the 4-letter word! Bulls = correct letter & position, Bears = correct letter wrong position
+            Guess the 4-letter word! Bulls = correct letter & position, Cows = correct letter wrong position
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -175,13 +206,13 @@ const BullsAndBears = () => {
             </Button>
           </div>
 
-          {!gameState.gameOver && (
+          {!gameState.gameOver && wordList.length > 0 && (
             <div className="flex gap-2">
               <Input
                 value={gameState.currentGuess}
                 onChange={(e) => setGameState(prev => ({ 
                   ...prev, 
-                  currentGuess: e.target.value.slice(0, 4).toUpperCase() 
+                  currentGuess: e.target.value.replace(/[^A-Za-z]/g, '').slice(0, 4).toUpperCase() 
                 }))}
                 onKeyPress={handleKeyPress}
                 placeholder="Enter 4 letters..."
@@ -199,6 +230,12 @@ const BullsAndBears = () => {
             </div>
           )}
 
+          {wordList.length === 0 && (
+            <div className="text-center py-4">
+              <p className="text-muted-foreground">Loading word lists...</p>
+            </div>
+          )}
+
           <div className="space-y-2">
             <h3 className="font-semibold text-foreground">Previous Guesses:</h3>
             {gameState.guesses.length === 0 ? (
@@ -209,11 +246,11 @@ const BullsAndBears = () => {
                   <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                     <span className="font-mono text-lg font-semibold">{guess}</span>
                     <div className="flex gap-2">
-                      <Badge variant="default" className="bg-accent">
-                        🐂 {gameState.feedback[index].bulls}
+                      <Badge className="bg-green-500 text-white font-bold">
+                        B{gameState.feedback[index].bulls}
                       </Badge>
-                      <Badge variant="secondary">
-                        🐻 {gameState.feedback[index].bears}
+                      <Badge className="bg-yellow-500 text-black font-bold">
+                        C{gameState.feedback[index].cows}
                       </Badge>
                     </div>
                   </div>
@@ -244,4 +281,4 @@ const BullsAndBears = () => {
   );
 };
 
-export default BullsAndBears;
+export default BullsAndCows;
