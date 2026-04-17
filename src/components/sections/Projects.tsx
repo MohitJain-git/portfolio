@@ -57,7 +57,7 @@ const Projects = () => {
     },
     {
       title: "Computer Vision for Aesthetic Analysis",
-      description: "Built an in-house computer vision model to extract facial structural ratios at Vara Beauty Inc, integrating it into mobile app onboarding flow for personalized recommendations.",
+      description: "Built an in-house computer vision model to extract facial structural ratios at Vera Beauty Inc, integrating it into mobile app onboarding flow for personalized recommendations.",
       technologies: ["Computer Vision", "Python", "Mobile Integration", "ML Models"],
       date: "2025",
       type: "Internship Project",

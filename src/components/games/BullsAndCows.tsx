@@ -187,7 +187,9 @@ const BullsAndCows = () => {
             Bulls and Cows
           </CardTitle>
           <p className="text-muted-foreground">
-            Guess the 4-letter word! Bulls = correct letter & position, Cows = correct letter wrong position
+            Guess the 4-letter word!<br />
+            Bulls (B) = correct letter and right position<br />
+            Cows (C) = correct letter but wrong position
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
