@@ -45,25 +45,6 @@ const Projects = () => {
       links: {
         github: "https://github.com/MohitJain-git/UltimateTexasHoldem"
       }
-    },
-    {
-      title: "Facial Recognition & Fraud Detection",
-      description: "Developed and deployed CNN-based facial recognition and fraud detection systems at Jio Platforms, analyzing data from 42M users with 95%+ accuracy and fraud detection improvements.",
-      technologies: ["CNN", "PyTorch", "AWS SageMaker", "Python", "Computer Vision"],
-      date: "2022-2024",
-      type: "Enterprise Project",
-      links: {
-      }
-    },
-    {
-      title: "Computer Vision for Aesthetic Analysis",
-      description: "Built an in-house computer vision model to extract facial structural ratios at Vera Beauty Inc, integrating it into mobile app onboarding flow for personalized recommendations.",
-      technologies: ["Computer Vision", "Python", "Mobile Integration", "ML Models"],
-      date: "2025",
-      type: "Internship Project",
-      links: {
-        demo: "https://verabeauty.app/"
-      }
     }
   ];
 
@@ -75,7 +56,7 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A showcase of my work in AI/ML, web development, and computer vision
+            Selected projects with public code, live demos, and measurable technical outcomes
           </p>
         </div>
 

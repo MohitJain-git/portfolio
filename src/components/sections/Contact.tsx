@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Send, FileDown } from "lucide-react";
 
 const Contact = () => {
   const email = "mohit270900@gmail.com";
@@ -15,7 +15,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            I'm always interested in new opportunities and collaborations. Let's connect!
+            Interested in AI/ML or full-stack opportunities? Let's build something impactful.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground">Tempe, Arizona, USA</p>
+                    <p className="text-foreground">San Jose, California, USA</p>
                   </div>
                 </div>
               </CardContent>
@@ -85,6 +85,14 @@ const Contact = () => {
                   <Github className="h-5 w-5 text-primary" />
                   <span className="text-foreground">GitHub Profile</span>
                 </a>
+                <a
+                  href="/Mohit-Jain-Resume.pdf"
+                  download="Mohit-Jain-Resume.pdf"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-smooth"
+                >
+                  <FileDown className="h-5 w-5 text-primary" />
+                  <span className="text-foreground">Download Resume</span>
+                </a>
               </CardContent>
             </Card>
           </div>
@@ -92,12 +100,12 @@ const Contact = () => {
           {/* Quick Contact */}
           <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-xl text-foreground">Send Me an Email</CardTitle>
+              <CardTitle className="text-xl text-foreground">Let's Work Together</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
                 <p className="text-foreground/80 mb-6">
-                  Have a project in mind or want to collaborate? Feel free to reach out directly via email. I typically respond within 24 hours.
+                  I'm open to software engineering roles and thoughtful collaborations involving AI/ML, computer vision, or full-stack development.
                 </p>
                 <Button 
                   asChild
@@ -108,16 +116,12 @@ const Contact = () => {
                     Send Email
                   </a>
                 </Button>
-              </div>
-
-              <div className="pt-6 border-t border-border">
-                <h3 className="font-semibold text-foreground mb-3">What to Include:</h3>
-                <ul className="space-y-2 text-sm text-foreground/70">
-                  <li>• Your name and organization</li>
-                  <li>• What you'd like to discuss</li>
-                  <li>• Your contact information</li>
-                  <li>• Any relevant links or details</li>
-                </ul>
+                <Button variant="outline" asChild className="mt-3 w-full border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
+                  <a href="/Mohit-Jain-Resume.pdf" download="Mohit-Jain-Resume.pdf">
+                    <FileDown className="mr-2 h-4 w-4" />
+                    Download Resume
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>

@@ -7,9 +7,10 @@ const Experience = () => {
     {
       title: "AI/ML Engineer Intern",
       company: "Vera Beauty Inc, USA (Remote)",
-      period: "May 2025 – July 2025",
+      period: "June 2025 – August 2025",
       type: "Summer Internship",
       description: "Built an in-house computer vision model to extract facial structural ratios, integrating it into the app's onboarding flow to recommend personalized aesthetic procedures.",
+      highlights: ["Production computer vision", "Mobile onboarding integration"],
       skills: ["Computer Vision", "Python", "Machine Learning", "Mobile Integration"]
     },
     {
@@ -17,7 +18,8 @@ const Experience = () => {
       company: "Jio Platforms Limited, Mumbai, India",
       period: "September 2022 – June 2024",
       type: "Full-time",
-      description: "Worked on AI solutions for the Enterprise Development Team, focusing on image-related tasks. Developed and deployed CNN-based facial recognition and fraud detection systems, analyzing data from 42M users.",
+      description: "Developed and deployed facial-recognition and fraud-detection systems for Jio's enterprise platform, improving verification quality and image retrieval at nationwide scale.",
+      highlights: ["42M+ users", "75% → 96% accuracy", "5× faster retrieval"],
       skills: ["AI/ML", "CNNs", "Python", "AWS", "Django", "React", "Docker"]
     },
     {
@@ -26,6 +28,7 @@ const Experience = () => {
       period: "June 2019 – July 2019",
       type: "Internship",
       description: "Interned as a Software Tester on Jio Fiber's Smart Home Devices team, testing apps on the new TV OS and creating test shell scripts to log errors via ADB.",
+      highlights: ["Automated ADB logging", "Smart-home device QA"],
       skills: ["Software Testing", "ADB", "Shell Scripting", "QA"]
     }
   ];
@@ -67,6 +70,16 @@ const Experience = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-foreground/80 mb-4">{exp.description}</p>
+                <div className="mb-5 grid gap-3 sm:grid-cols-3">
+                  {exp.highlights.map((highlight) => (
+                    <div
+                      key={highlight}
+                      className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-center text-sm font-semibold text-primary"
+                    >
+                      {highlight}
+                    </div>
+                  ))}
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill, skillIndex) => (
                     <Badge key={skillIndex} variant="secondary">

@@ -1,100 +1,87 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Download } from "lucide-react";
-import React from 'react';
-// Make sure to import your CSS file if it's not global
-// import './Hero.css'; 
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center bg-[#0a0a0a] text-white">
-      
-      {/* --- START OF NEW CONTENT --- */}
-      <div className="logo-container text-center">
-        {/* The Glitch Effect */}
-        <div className="glitch relative text-9xl font-black tracking-widest" data-text="MJ">
-          MJ
-        </div>
-        
-        {/* The Sub-text */}
-        <div className="sub-text text-cyan-400 text-2xl tracking-[0.5em] mt-4 font-mono">
-          MOHIT JAIN
-        </div>
-        
-        {/* The Tagline */}
-        <p className="tagline text-gray-500 text-sm tracking-widest mt-2 uppercase">
-          Full Stack Developer • AI Enthusiast • MS in Computer Science
-        </p>
-      </div>
-      {/* --- END OF NEW CONTENT --- */}
+    <section
+      id="hero"
+      className="relative min-h-screen overflow-hidden bg-gradient-hero px-4 pt-16 text-white"
+    >
+      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      <div className="absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
 
+      <div className="container relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl items-center justify-center py-20 text-center">
+        <div>
+          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+            <span className="h-2 w-2 rounded-full bg-accent shadow-glow-accent" />
+            Open to software engineering opportunities
+          </div>
+
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-primary md:text-base">
+            Mohit Jain
+          </p>
+          <h1 className="mx-auto max-w-4xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
+            AI/ML Engineer &amp;{" "}
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Full-Stack Developer
+            </span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-foreground/70 md:text-xl">
+            M.S. in Computer Science with 2+ years of experience building Python-based AI systems,
+            production computer-vision models, and full-stack applications on AWS.
+          </p>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button size="lg" className="w-full bg-gradient-primary hover:shadow-glow-primary sm:w-auto" asChild>
+              <a href="#projects">
+                View Featured Projects
+                <ArrowDown className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full border-primary/60 bg-background/20 text-primary hover:bg-primary hover:text-primary-foreground sm:w-auto"
+              asChild
+            >
+              <a href="/Mohit-Jain-Resume.pdf" download="Mohit-Jain-Resume.pdf">
+                <Download className="mr-2 h-5 w-5" />
+                Download Resume
+              </a>
+            </Button>
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <a
+              href="https://linkedin.com/in/mohitjain-27"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Mohit Jain on LinkedIn"
+              className="rounded-lg p-3 text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-primary"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://github.com/MohitJain-git"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Mohit Jain on GitHub"
+              className="rounded-lg p-3 text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-primary"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:mohit270900@gmail.com"
+              aria-label="Email Mohit Jain"
+              className="rounded-lg p-3 text-muted-foreground transition-smooth hover:bg-primary/10 hover:text-primary"
+            >
+              <Mail className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
 
 export default Hero;
-
-// const Hero = () => {
-//   return (
-//     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
-//       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-//       <div className="container mx-auto px-4 text-center relative z-10">
-//         <div className="max-w-4xl mx-auto">
-//           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-//             Mohit Jain
-//           </h1>
-//           <h2 className="text-2xl md:text-3xl text-muted-foreground mb-6">
-//             AI/ML Engineer & Full Stack Developer
-//           </h2>
-//           <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
-//             Computer Science master's student with 2+ years of experience in developing 
-//             Python-based AI solutions, including deploying ML models and CNNs for object 
-//             detection and face verification on AWS.
-//           </p>
-          
-//           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-//             <Button 
-//               size="lg" 
-//               className="bg-gradient-primary hover:shadow-glow-primary transition-smooth"
-//             >
-//               <Mail className="mr-2 h-5 w-5" />
-//               Get In Touch
-//             </Button>
-//             <Button 
-//               variant="outline" 
-//               size="lg"
-//               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
-//             >
-//               <Download className="mr-2 h-5 w-5" />
-//               Download Resume
-//             </Button>
-//           </div>
-
-//           <div className="flex justify-center space-x-6">
-//             <a 
-//               href="https://linkedin.com/in/mohitjain-27" 
-//               target="_blank" 
-//               rel="noopener noreferrer"
-//               className="text-muted-foreground hover:text-primary transition-smooth hover:shadow-glow-primary p-2 rounded-lg"
-//             >
-//               <Linkedin className="h-6 w-6" />
-//             </a>
-//             <a 
-//               href="mailto:mohit270900@gmail.com"
-//               className="text-muted-foreground hover:text-primary transition-smooth hover:shadow-glow-primary p-2 rounded-lg"
-//             >
-//               <Mail className="h-6 w-6" />
-//             </a>
-//             <a 
-//               href="#" 
-//               className="text-muted-foreground hover:text-primary transition-smooth hover:shadow-glow-primary p-2 rounded-lg"
-//             >
-//               <Github className="h-6 w-6" />
-//             </a>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Hero;

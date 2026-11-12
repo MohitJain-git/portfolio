@@ -24,14 +24,14 @@ const Games = () => {
   ];
 
   return (
-    <section id="games" className="py-20 bg-muted/50">
+    <section id="playground" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent text-glow">
-            Interactive Games
+            Interactive Playground
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Fun and challenging games to showcase interactive development skills
+            A hands-on look at how I turn game logic into responsive web experiences
           </p>
         </div>
 
