@@ -1,69 +1,129 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Code, Database, Cloud, Brain } from "lucide-react";
-
+import { SpotlightCard } from "@/components/ui/spotlight-card";
+import { Brain, Cloud, Code, Layers } from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Languages & Core",
-      icon: <Code className="h-6 w-6" />,
-      skills: ["Python", "JavaScript", "TypeScript", "SQL", "HTML5", "CSS3", "C++"]
+      index: "01",
+      title: "AI/ML & Computer Vision",
+      subtitle: "Deep Learning, Probabilistic Modeling & Agents",
+      icon: <Brain className="h-5 w-5" />,
+      skills: [
+        "LangChain & LangGraph",
+        "vLLM, Ollama & RAG",
+        "PyTorch & TensorFlow",
+        "OpenCV & InsightFace",
+        "Detectron2 & PyTorch FER",
+        "Pyro & CFR Game Theory",
+        "Scikit-learn",
+        "Pandas & NumPy",
+      ],
     },
     {
-      title: "AI/ML & Data Science",
-      icon: <Brain className="h-6 w-6" />,
-      skills: ["LangChain", "PyTorch", "Pyro", "OpenCV", "Scikit-learn", "Pandas", "NumPy", "CFR - Reinforcement Learning"]
+      index: "02",
+      title: "Languages & Core Systems",
+      subtitle: "High-Performance & Type-Safe Foundations",
+      icon: <Code className="h-5 w-5" />,
+      skills: [
+        "Python",
+        "TypeScript",
+        "JavaScript (ES2024+)",
+        "C++",
+        "SQL",
+        "HTML5",
+        "CSS3",
+        "Shell / ADB Scripting",
+      ],
     },
     {
-      title: "Full Stack Frameworks",
-      icon: <Database className="h-6 w-6" />, // You might want to switch this icon to <Layout /> if available
-      skills: ["React", "Node.js","Vue.js", "FastAPI", "Django", "Socket.io", "Flask"]
+      index: "03",
+      title: "Full-Stack & Realtime Web",
+      subtitle: "Reactive Frontends & Async Microservices",
+      icon: <Layers className="h-5 w-5" />,
+      skills: [
+        "React",
+        "Vue.js",
+        "FastAPI",
+        "Django",
+        "Node.js",
+        "Socket.io / WebSockets",
+        "Flask",
+        "Tailwind CSS",
+      ],
     },
     {
-      title: "Cloud, DevOps & Tools",
-      icon: <Cloud className="h-6 w-6" />,
-      skills: ["AWS (SageMaker, Lambda, EC2, S3, RDS)", "Docker", "Kubernetes", "Git", "Redis", "Elasticsearch", "PostgreSQL", "MongoDB"]
-    }
+      index: "04",
+      title: "Cloud, DevOps & Data Stores",
+      subtitle: "Production Infrastructure at Scale",
+      icon: <Cloud className="h-5 w-5" />,
+      skills: [
+        "AWS (SageMaker, Lambda, EC2, S3, RDS)",
+        "Docker",
+        "Kubernetes",
+        "Redis",
+        "Elasticsearch",
+        "PostgreSQL",
+        "MongoDB",
+        "Git & CI/CD",
+      ],
+    },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent text-glow">
-            Technical Skills
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Technologies and tools I work with to bring ideas to life
+    <section id="skills" className="relative py-24 border-t border-white/[0.06]">
+      <div className="container mx-auto">
+        <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <div className="mb-3 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-primary">
+              <Code className="h-3.5 w-3.5" />
+              <span>04 // Technical Stack Matrix</span>
+            </div>
+            <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              Full-spectrum{" "}
+              <span className="font-serif italic font-normal text-primary">
+                engineering
+              </span>{" "}
+              arsenal.
+            </h2>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground sm:text-base">
+            From training custom convolutional vision networks to orchestrating containerized microservices on AWS.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {skillCategories.map((category, index) => (
-            <Card key={index} className="bg-card border-border hover:shadow-glow-accent transition-smooth group">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-foreground">
-                  <div className="p-2 rounded-lg bg-accent/20 text-accent group-hover:shadow-glow-accent transition-smooth">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {skillCategories.map((category) => (
+            <SpotlightCard key={category.index} className="p-6 sm:p-8">
+              <div className="mb-6 flex items-start justify-between gap-4">
+                <div className="flex items-center gap-3.5">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
                     {category.icon}
                   </div>
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge 
-                      key={skillIndex} 
-                      variant="secondary"
-                      className="hover:bg-primary hover:text-primary-foreground transition-smooth cursor-default"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-white">
+                      {category.title}
+                    </h3>
+                    <p className="font-mono text-xs text-muted-foreground">
+                      {category.subtitle}
+                    </p>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                <span className="font-mono text-xs text-white/30">
+                  //{category.index}
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2 font-mono text-xs font-medium text-white/90 transition-all hover:border-primary/50 hover:bg-primary/15 hover:text-white"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </SpotlightCard>
           ))}
         </div>
       </div>

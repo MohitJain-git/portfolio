@@ -1,94 +1,177 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarIcon, MapPinIcon } from "lucide-react";
+import { Briefcase, CalendarIcon, CheckCircle2, MapPinIcon } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
     {
-      title: "AI/ML Engineer Intern",
-      company: "Vera Beauty Inc, USA (Remote)",
+      index: "01",
+      title: "Software Engineering Intern (AI/ML)",
+      company: "Vera Beauty Inc.",
+      location: "Tempe, AZ / Remote",
       period: "June 2025 – August 2025",
       type: "Summer Internship",
-      description: "Built an in-house computer vision model to extract facial structural ratios, integrating it into the app's onboarding flow to recommend personalized aesthetic procedures.",
-      highlights: ["Production computer vision", "Mobile onboarding integration"],
-      skills: ["Computer Vision", "Python", "Machine Learning", "Mobile Integration"]
+      description:
+        "Engineered an in-house computer vision model to extract facial structural ratios and integrated it into the onboarding flow to drive personalized aesthetic procedure recommendations. Collaborated with the Lead Engineer to architect an Airbnb-style platform enabling users to research and book med-spa treatments across the U.S.",
+      highlights: [
+        { metric: "In-House CV", detail: "Facial structural ratio extraction" },
+        { metric: "Onboarding AI", detail: "Personalized procedure matching" },
+        { metric: "Airbnb-Style", detail: "Nationwide med-spa booking platform" },
+      ],
+      skills: ["Computer Vision", "Python", "Machine Learning", "Full-Stack", "Mobile Integration"],
     },
     {
-      title: "SDE I",
-      company: "Jio Platforms Limited, Mumbai, India",
+      index: "02",
+      title: "Graduate Student Assistant (Intro to AI — CSE 471)",
+      company: "Arizona State University",
+      location: "Tempe, AZ",
+      period: "January 2025 – May 2026",
+      type: "Academic Leadership · 4.0/4.0 GPA",
+      description:
+        "Supporting 120+ undergraduate and graduate students in CSE 471 (Introduction to Artificial Intelligence), simplifying complex probabilistic reasoning, search, and machine learning concepts through mentoring and office hours.",
+      highlights: [
+        { metric: "120+ Students", detail: "CSE 471 Intro to AI mentorship" },
+        { metric: "4.0 / 4.0 GPA", detail: "M.S. in Computer Science" },
+        { metric: "AI Curriculum", detail: "Search, RL & probabilistic ML" },
+      ],
+      skills: ["Artificial Intelligence", "Probabilistic ML", "Reinforcement Learning", "Python", "Mentorship"],
+    },
+    {
+      index: "03",
+      title: "Software Engineer (SDE-I)",
+      company: "Jio Platforms Limited",
+      location: "Mumbai, India",
       period: "September 2022 – June 2024",
-      type: "Full-time",
-      description: "Developed and deployed facial-recognition and fraud-detection systems for Jio's enterprise platform, improving verification quality and image retrieval at nationwide scale.",
-      highlights: ["42M+ users", "75% → 96% accuracy", "5× faster retrieval"],
-      skills: ["AI/ML", "CNNs", "Python", "AWS", "Django", "React", "Docker"]
+      type: "Full-Time · 2 Years",
+      description:
+        "Developed and deployed large-scale facial recognition and fraud detection systems analyzing data from 42M+ users. Boosted verification accuracy from 75% to 96% by enhancing facial embeddings (128D → 512D) using InsightFace and OpenCV. Designed end-to-end ML pipelines for Digital Asset Management using Detectron2 on AWS SageMaker and PyTorch FER, and optimized image retrieval speed by 5× using Elasticsearch and cosine similarity.",
+      highlights: [
+        { metric: "42M+ Users", detail: "Nationwide facial recognition & fraud ML" },
+        { metric: "75% → 96%", detail: "128D → 512D InsightFace & OpenCV" },
+        { metric: "5× Faster", detail: "Elasticsearch retrieval · 95%+ tagging" },
+      ],
+      skills: ["Python", "InsightFace", "OpenCV", "Detectron2", "PyTorch FER", "AWS SageMaker", "Elasticsearch", "Docker", "AWS Lambda"],
     },
     {
-      title: "Software Tester",
-      company: "Jio Platforms Limited, Mumbai, India",
+      index: "04",
+      title: "Software Tester Intern",
+      company: "Jio Platforms Limited",
+      location: "Mumbai, India",
       period: "June 2019 – July 2019",
       type: "Internship",
-      description: "Interned as a Software Tester on Jio Fiber's Smart Home Devices team, testing apps on the new TV OS and creating test shell scripts to log errors via ADB.",
-      highlights: ["Automated ADB logging", "Smart-home device QA"],
-      skills: ["Software Testing", "ADB", "Shell Scripting", "QA"]
-    }
+      description:
+        "Interned as a Software Tester on Jio Fiber's Smart Home Devices team, testing applications on the custom TV OS and creating automated diagnostic shell scripts to capture and log system errors via ADB.",
+      highlights: [
+        { metric: "ADB Automation", detail: "Shell-based error telemetry logging" },
+        { metric: "Smart-Home OS", detail: "Jio Fiber TV OS app validation" },
+        { metric: "QA Pipelines", detail: "Automated pre-release diagnostics" },
+      ],
+      skills: ["Software Testing", "ADB", "Shell Scripting", "Linux", "QA"],
+    },
   ];
 
   return (
-    <section id="experience" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent text-glow">
-            Professional Experience
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            My journey in AI/ML engineering and software development
+    <section id="experience" className="relative py-24 border-t border-border">
+      <div className="container mx-auto">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <div className="mb-3 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-primary">
+              <Briefcase className="h-3.5 w-3.5" />
+              <span>02 // Career Trajectory</span>
+            </div>
+            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+              Production{" "}
+              <span className="font-serif italic font-normal text-chromatic">
+                engineering
+              </span>{" "}
+              experience.
+            </h2>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground sm:text-base">
+            From nationwide biometric platforms serving 42M+ users at Jio to computer-vision onboarding and med-spa platforms at Vera Beauty.
           </p>
         </div>
 
-        <div className="space-y-6 max-w-4xl mx-auto">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="bg-card border-border hover:shadow-glow-primary transition-smooth">
-              <CardHeader>
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        {/* Timeline Cards */}
+        <div className="relative space-y-6">
+          {experiences.map((exp) => (
+            <SpotlightCard key={exp.index} className="p-6 sm:p-8">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+                {/* Left Metadata Column (4 cols) */}
+                <div className="flex flex-col justify-between border-b border-border pb-5 lg:col-span-4 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
                   <div>
-                    <CardTitle className="text-xl text-foreground">{exp.title}</CardTitle>
-                    <div className="flex items-center gap-2 text-primary font-medium">
-                      <MapPinIcon className="h-4 w-4" />
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="font-mono text-xs font-bold text-primary">
+                        ROLE // {exp.index}
+                      </span>
+                      <Badge
+                        variant="outline"
+                        className="border-border bg-secondary/50 font-mono text-[10px] text-foreground"
+                      >
+                        {exp.type}
+                      </Badge>
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">
+                      {exp.title}
+                    </h3>
+                    <div className="mt-1.5 font-display text-base font-medium text-primary">
                       {exp.company}
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <CalendarIcon className="h-4 w-4" />
-                      {exp.period}
+
+                  <div className="mt-5 space-y-1.5 font-mono text-xs text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <CalendarIcon className="h-3.5 w-3.5 text-primary/80" />
+                      <span>{exp.period}</span>
                     </div>
-                    <Badge variant="outline" className="w-fit">
-                      {exp.type}
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      <MapPinIcon className="h-3.5 w-3.5 text-accent/80" />
+                      <span>{exp.location}</span>
+                    </div>
                   </div>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80 mb-4">{exp.description}</p>
-                <div className="mb-5 grid gap-3 sm:grid-cols-3">
-                  {exp.highlights.map((highlight) => (
-                    <div
-                      key={highlight}
-                      className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-center text-sm font-semibold text-primary"
-                    >
-                      {highlight}
+
+                {/* Right Impact & Stack Column (8 cols) */}
+                <div className="flex flex-col justify-between lg:col-span-8 lg:pl-2">
+                  <div>
+                    <p className="text-sm leading-relaxed text-foreground/85 sm:text-base">
+                      {exp.description}
+                    </p>
+
+                    {/* Key Metrics Grid */}
+                    <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      {exp.highlights.map((h) => (
+                        <div
+                          key={h.metric}
+                          className="rounded-xl border border-border bg-secondary/35 p-3.5"
+                        >
+                          <div className="flex items-center gap-1.5 font-display text-base font-bold text-foreground">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0" />
+                            <span>{h.metric}</span>
+                          </div>
+                          <div className="mt-1 font-mono text-[11px] text-muted-foreground">
+                            {h.detail}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Tech Stack Pills */}
+                  <div className="mt-6 flex flex-wrap gap-2 border-t border-border pt-4">
+                    {exp.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-lg border border-border bg-secondary/50 px-2.5 py-1 font-mono text-xs text-foreground"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill, skillIndex) => (
-                    <Badge key={skillIndex} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </SpotlightCard>
           ))}
         </div>
       </div>

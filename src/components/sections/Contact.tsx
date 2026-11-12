@@ -1,130 +1,203 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Github, Send, FileDown } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  Copy,
+  FileDown,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  Sparkles,
+} from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
+
   const email = "mohit270900@gmail.com";
-  const subject = "Let's Connect - Portfolio Inquiry";
+  const subject = "Let's Connect - Engineering Opportunity / Collaboration";
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    toast({
+      title: "Email Copied",
+      description: `${email} is ready in your clipboard.`,
+    });
+    setTimeout(() => setCopied(false), 2500);
+  };
+
   return (
-    <section id="contact" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent text-glow">
-            Get In Touch
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Interested in AI/ML or full-stack opportunities? Let's build something impactful.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground">Contact Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <a 
-                  href={mailtoLink}
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-smooth"
-                >
-                  <div className="p-2 rounded-lg bg-primary/20 text-primary">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground hover:text-primary transition-smooth">{email}</p>
-                  </div>
-                </a>
-                
-                <div className="flex items-center gap-3 p-3">
-                  <div className="p-2 rounded-lg bg-primary/20 text-primary">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Phone</p>
-                    <p className="text-foreground">+1 602-883-5286</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-3">
-                  <div className="p-2 rounded-lg bg-primary/20 text-primary">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground">San Jose, California, USA</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground">Social Links</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <a 
-                  href="https://linkedin.com/in/mohitjain-27" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-smooth"
-                >
-                  <Linkedin className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">LinkedIn Profile</span>
-                </a>
-                <a 
-                  href="https://github.com/MohitJain-git"
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-smooth"
-                >
-                  <Github className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">GitHub Profile</span>
-                </a>
-                <a
-                  href="/Mohit-Jain-Resume.pdf"
-                  download="Mohit-Jain-Resume.pdf"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-smooth"
-                >
-                  <FileDown className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">Download Resume</span>
-                </a>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Quick Contact */}
-          <Card className="bg-card border-border">
-            <CardHeader>
-              <CardTitle className="text-xl text-foreground">Let's Work Together</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div>
-                <p className="text-foreground/80 mb-6">
-                  I'm open to software engineering roles and thoughtful collaborations involving AI/ML, computer vision, or full-stack development.
-                </p>
-                <Button 
-                  asChild
-                  className="w-full bg-gradient-primary hover:shadow-glow-primary transition-smooth"
-                >
-                  <a href={mailtoLink} className="flex items-center justify-center gap-2">
-                    <Send className="h-4 w-4" />
-                    Send Email
-                  </a>
-                </Button>
-                <Button variant="outline" asChild className="mt-3 w-full border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
-                  <a href="/Mohit-Jain-Resume.pdf" download="Mohit-Jain-Resume.pdf">
-                    <FileDown className="mr-2 h-4 w-4" />
-                    Download Resume
-                  </a>
-                </Button>
+    <section id="contact" className="relative py-24 border-t border-white/[0.06]">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          {/* Left Callout Banner (7 Cols) */}
+          <SpotlightCard className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 font-mono text-xs text-accent">
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>07 // Ready for Next Impact</span>
               </div>
-            </CardContent>
-          </Card>
+
+              <h2 className="font-display text-3xl font-bold leading-tight text-white sm:text-5xl">
+                Let&apos;s build{" "}
+                <span className="font-serif italic font-normal text-primary">
+                  production AI
+                </span>{" "}
+                &amp; scalable products together.
+              </h2>
+
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Whether you&apos;re hiring for AI/ML, Computer Vision, or Full-Stack Software Engineering roles—or want to chat about game theory and systems architecture—my inbox is always open.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <Button
+                size="lg"
+                className="rounded-full bg-gradient-primary px-7 font-display text-sm font-bold text-primary-foreground hover:shadow-glow-primary"
+                asChild
+              >
+                <a href={mailtoLink}>
+                  <Send className="mr-2 h-4 w-4" />
+                  Send Direct Email
+                </a>
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline"
+                size="lg"
+                onClick={handleCopyEmail}
+                className="rounded-full border-white/15 bg-white/[0.03] px-5 font-mono text-xs text-white hover:border-primary/50 hover:bg-white/10"
+              >
+                {copied ? (
+                  <>
+                    <Check className="mr-2 h-4 w-4 text-accent" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="mr-2 h-4 w-4 text-primary" />
+                    {email}
+                  </>
+                )}
+              </Button>
+
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full border-primary/40 bg-primary/10 px-5 font-display text-sm text-primary hover:bg-primary hover:text-primary-foreground"
+                asChild
+              >
+                <a href="/Mohit-Jain-Resume.pdf" download="Mohit-Jain-Resume.pdf">
+                  <FileDown className="mr-2 h-4 w-4" />
+                  Resume PDF
+                </a>
+              </Button>
+            </div>
+          </SpotlightCard>
+
+          {/* Right Direct Channels Card (5 Cols) */}
+          <SpotlightCard className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+            <div>
+              <h3 className="font-display text-xl font-bold text-white">
+                Direct Coordinates
+              </h3>
+              <p className="mt-1 font-mono text-xs text-muted-foreground">
+                San Jose, CA · Available for Immediate Interviews
+              </p>
+
+              <div className="mt-6 space-y-3">
+                <a
+                  href={mailtoLink}
+                  className="flex items-center justify-between rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 transition-colors hover:border-primary/40 hover:bg-white/[0.05]"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-mono text-[10px] uppercase text-muted-foreground">
+                        Email Address
+                      </div>
+                      <div className="font-mono text-sm font-medium text-white">
+                        {email}
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
+                </a>
+
+                <a
+                  href="tel:+16028835286"
+                  className="flex items-center justify-between rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 transition-colors hover:border-primary/40 hover:bg-white/[0.05]"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-accent">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-mono text-[10px] uppercase text-muted-foreground">
+                        Phone
+                      </div>
+                      <div className="font-mono text-sm font-medium text-white">
+                        +1 (602) 883-5286
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
+                </a>
+
+                <div className="flex items-center justify-between rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4">
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-mono text-[10px] uppercase text-muted-foreground">
+                        Current Location
+                      </div>
+                      <div className="font-display text-sm font-medium text-white">
+                        San Jose, California, USA
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Profiles */}
+            <div className="grid grid-cols-2 gap-3 border-t border-white/[0.07] pt-5">
+              <a
+                href="https://linkedin.com/in/mohitjain-27"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-3 font-mono text-xs text-white transition-colors hover:border-primary/50 hover:bg-primary/10"
+              >
+                <Linkedin className="h-4 w-4 text-primary" />
+                <span>LinkedIn</span>
+                <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
+              </a>
+              <a
+                href="https://github.com/MohitJain-git"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-3 font-mono text-xs text-white transition-colors hover:border-primary/50 hover:bg-primary/10"
+              >
+                <Github className="h-4 w-4 text-primary" />
+                <span>GitHub</span>
+                <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
+              </a>
+            </div>
+          </SpotlightCard>
         </div>
       </div>
     </section>
