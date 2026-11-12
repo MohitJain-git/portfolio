@@ -213,34 +213,28 @@ const UsaScenery = () => {
         </div>
 
         {/* Main Interactive Stop Showcase Theater */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-10">
-          {/* Left 8 Cols: Adaptive Color-Graded Film Viewer */}
-          <div className="lg:col-span-8 bento-card rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between">
-            {/* Top Film Metadata Strip */}
-            <div className="flex flex-wrap items-center justify-between gap-2 pb-3.5 px-1">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold border border-primary/40 bg-primary/15 text-primary">
-                  Leg {currentStop.legNumber} · {currentStop.routeTransition}
-                </span>
-                <span className="hidden sm:inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
-                  <Sparkles className="w-3.5 h-3.5 text-primary" />
-                  {currentPhoto.gradeProfile}
-                </span>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-10">
+          {/* Left 8 Cols: Fixed-Height Color-Graded Film Viewer */}
+          <div className="lg:col-span-8 bento-card rounded-3xl p-4 sm:p-5 flex flex-col gap-3.5">
+            {/* Top Header Strip (Single Clean Line, Fixed Height) */}
+            <div className="flex items-center justify-between gap-2 px-1 h-8 shrink-0">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold border border-primary/40 bg-primary/15 text-primary truncate">
+                Leg {currentStop.legNumber} · {currentStop.routeTransition}
+              </span>
 
               <button
                 onClick={() => setLightboxPhoto(currentPhoto)}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/80 hover:bg-secondary border border-border font-mono text-xs text-foreground transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/80 hover:bg-secondary border border-border font-mono text-xs text-foreground transition-colors shrink-0"
               >
                 <Maximize2 className="w-3.5 h-3.5 text-primary" />
                 <span>Full-Res Lightbox</span>
               </button>
             </div>
 
-            {/* Adaptive Stage: Never chops vertical photos! Uses blurred film backdrop for portraits */}
+            {/* Middle Image Stage: Strictly Fixed Height so layout never shifts */}
             <div
               onClick={() => setLightboxPhoto(currentPhoto)}
-              className="relative w-full h-[380px] sm:h-[490px] rounded-2xl overflow-hidden bg-[#0E0C0A] border border-border cursor-pointer group flex items-center justify-center"
+              className="relative w-full h-[360px] sm:h-[460px] shrink-0 rounded-2xl overflow-hidden bg-[#0E0C0A] border border-border cursor-pointer group flex items-center justify-center"
             >
               {/* Ambient Blurred Color-Matched Backdrop */}
               <img
@@ -250,7 +244,7 @@ const UsaScenery = () => {
                 className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-45 brightness-75 pointer-events-none"
               />
 
-              {/* Crisp Full-Composition Foreground Image */}
+              {/* Crisp Unobstructed Foreground Image */}
               <img
                 src={currentPhoto.src}
                 alt={`${currentPhoto.title} — ${currentPhoto.location}`}
@@ -260,82 +254,71 @@ const UsaScenery = () => {
                     : "h-full w-auto max-w-full object-contain shadow-[0_0_50px_rgba(0,0,0,0.85)] rounded-lg"
                 }`}
               />
+            </div>
 
-              {/* Translucent See-Through Caption Bar */}
-              <div className="absolute inset-x-3 bottom-3 z-20 px-4 py-2.5 rounded-2xl bg-black/25 backdrop-blur-[5px] border border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <div className="flex items-center gap-2 font-mono text-xs text-amber-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
-                    <MapPin className="w-3.5 h-3.5 text-[#FF7A59]" />
-                    <span>{currentPhoto.location}</span>
-                    <span className="text-white/50">·</span>
-                    <span style={{ color: "#FAF6F0" }}>{currentPhoto.coordinates}</span>
-                  </div>
-                  <h3
-                    className="font-display text-lg sm:text-xl font-bold mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
-                    style={{ color: "#FAF6F0" }}
-                  >
-                    {currentPhoto.title}
-                  </h3>
+            {/* Bottom Caption Bar (Fixed Height Below the Image — No Overlap, No Button Jumping) */}
+            <div className="px-4 py-3 sm:h-[68px] shrink-0 rounded-2xl bg-secondary/45 border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 font-mono text-xs text-primary truncate">
+                  <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                  <span className="truncate">{currentPhoto.location}</span>
+                  <span className="text-muted-foreground shrink-0">·</span>
+                  <span className="text-muted-foreground shrink-0">{currentPhoto.coordinates}</span>
                 </div>
-
-                {currentStop.photos.length > 1 && (
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md p-1 rounded-xl border border-white/15 shrink-0"
-                  >
-                    {currentStop.photos.map((p, pIdx) => (
-                      <button
-                        key={p.id}
-                        onClick={() => setActivePhotoIdx(pIdx)}
-                        className={`px-2.5 py-1 rounded-lg font-mono text-xs transition-all ${
-                          activePhotoIdx === pIdx
-                            ? "bg-gradient-to-r from-[#FF7A59] to-amber-400 text-[#14100D] font-semibold"
-                            : "hover:opacity-100 opacity-85"
-                        }`}
-                        style={
-                          activePhotoIdx === pIdx
-                            ? undefined
-                            : { color: "#FAF6F0" }
-                        }
-                      >
-                        Shot 0{pIdx + 1}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <h3 className="font-display text-lg sm:text-xl font-bold text-foreground mt-0.5 truncate">
+                  {currentPhoto.title}
+                </h3>
               </div>
+
+              {currentStop.photos.length > 1 && (
+                <div className="inline-flex items-center gap-1.5 bg-background/70 p-1 rounded-xl border border-border shrink-0 self-start sm:self-center">
+                  {currentStop.photos.map((p, pIdx) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setActivePhotoIdx(pIdx)}
+                      className={`px-2.5 py-1 rounded-lg font-mono text-xs transition-all ${
+                        activePhotoIdx === pIdx
+                          ? "bg-gradient-primary text-primary-foreground font-semibold"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      Shot 0{pIdx + 1}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Right 4 Cols: Stop Story, Telemetry & Secondary Angle Switcher */}
-          <div className="lg:col-span-4 bento-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between">
-            <div className="space-y-5">
-              <div className="flex items-center justify-between border-b border-border pb-4">
-                <div>
+          {/* Right 4 Cols: Fixed-Height Stop Story, Telemetry & Secondary Angle Switcher */}
+          <div className="lg:col-span-4 bento-card rounded-3xl p-6 sm:p-7 lg:h-[608px] flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-border pb-3.5">
+                <div className="min-w-0 pr-2">
                   <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
                     STOP {currentStop.legNumber} OF 09
                   </span>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mt-0.5">
+                  <h3 className="font-display text-2xl font-bold text-foreground mt-0.5 truncate">
                     {currentStop.stopName}
                   </h3>
                 </div>
-                <div className="w-11 h-11 rounded-2xl flex items-center justify-center font-mono text-sm font-bold border border-primary/35 bg-primary/15 text-primary">
+                <div className="w-11 h-11 shrink-0 rounded-2xl flex items-center justify-center font-mono text-sm font-bold border border-primary/35 bg-primary/15 text-primary">
                   {currentStop.stateCode}
                 </div>
               </div>
 
-              {/* Field Log Narrative */}
+              {/* Field Log Narrative (Fixed 3-Line Height) */}
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-primary font-semibold mb-1.5">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-primary font-semibold mb-1">
                   ROAD TRIP LOG
                 </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 min-h-[4.125rem]">
                   {currentStop.story}
                 </p>
               </div>
 
-              {/* Active Frame Notes */}
-              <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
+              {/* Active Frame Notes (Fixed 2-Line Caption Height) */}
+              <div className="p-3.5 rounded-2xl bg-secondary/50 border border-border space-y-1.5">
                 <div className="flex items-center justify-between text-xs font-mono text-primary font-semibold">
                   <span className="flex items-center gap-1.5">
                     <Camera className="w-3.5 h-3.5 text-primary" />
@@ -343,7 +326,7 @@ const UsaScenery = () => {
                   </span>
                   <span>{currentPhoto.dateLabel}</span>
                 </div>
-                <p className="text-xs text-foreground/85 leading-relaxed">
+                <p className="text-xs text-foreground/85 leading-relaxed line-clamp-2 min-h-[2.5rem]">
                   {currentPhoto.caption}
                 </p>
                 <div className="pt-1 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
@@ -385,8 +368,8 @@ const UsaScenery = () => {
               </div>
             </div>
 
-            {/* Bottom Next Stop Button */}
-            <div className="pt-5 mt-5 border-t border-border flex items-center justify-between gap-3">
+            {/* Bottom Next Stop Button (Locked Position) */}
+            <div className="pt-4 border-t border-border flex items-center justify-between gap-3 shrink-0">
               <button
                 onClick={() => stepRoute(-1)}
                 className="px-3.5 py-2 rounded-xl bg-secondary hover:bg-secondary/80 border border-border font-mono text-xs text-foreground transition-colors"
@@ -528,12 +511,6 @@ const UsaScenery = () => {
                     <span>GPS Coordinates</span>
                     <span className="text-foreground font-semibold">
                       {lightboxPhoto.coordinates}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Color Grade</span>
-                    <span className="text-primary font-semibold">
-                      {lightboxPhoto.gradeProfile}
                     </span>
                   </div>
                 </div>

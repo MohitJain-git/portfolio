@@ -82,13 +82,13 @@ export const CommandPalette = ({ open, onOpenChange }: CommandPaletteProps) => {
           </CommandItem>
           <CommandItem onSelect={() => jumpTo("#experience")}>
             <Briefcase className="mr-2 h-4 w-4 text-primary" />
-            <span>Experience (Vera Beauty, Jio Platforms)</span>
-            <CommandShortcut>03</CommandShortcut>
+            <span>Experience (LEAP Consultants, Vera Beauty, Jio Platforms)</span>
+            <CommandShortcut>02</CommandShortcut>
           </CommandItem>
           <CommandItem onSelect={() => jumpTo("#projects")}>
             <FolderGit2 className="mr-2 h-4 w-4 text-primary" />
-            <span>Featured Projects (Wordle Royale, Poker CFR, Shoe La La)</span>
-            <CommandShortcut>04</CommandShortcut>
+            <span>Featured Projects (Card Club, Wordle Royale, Poker CFR, Shoe La La)</span>
+            <CommandShortcut>03</CommandShortcut>
           </CommandItem>
           <CommandItem onSelect={() => jumpTo("#playground")}>
             <Gamepad2 className="mr-2 h-4 w-4 text-accent" />

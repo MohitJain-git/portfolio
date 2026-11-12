@@ -290,3 +290,25 @@ html[data-phase="day"] .bg-white\/\[0\.025\] {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.7);
 }
+
+/* Group Element View Transitions for Project Cards */
+.project-card-vt {
+  view-transition-class: project-card-vt;
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(.project-card-vt) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

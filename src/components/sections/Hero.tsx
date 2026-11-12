@@ -75,11 +75,11 @@ const ROLE_LENSES: Record<
     headlineSerif: "game-theoretic agents",
     headlineSuffix: "& multiplayer engines.",
     subtext:
-      "Built an Ultimate Texas Hold’em agent using Pyro and Counterfactual Regret Minimization (CFR) over 1M+ Monte Carlo rollouts, a live multiplayer Wordle Battle Royale via Socket.io, and the playable Bulls & Cows arcade below.",
+      "Architected Card Club’s 10-game polymorphic card engine with per-player fog-of-war anti-cheat, an Ultimate Texas Hold’em CFR agent over 1M+ Monte Carlo rollouts, Wordle Battle Royale via Socket.io, and the playable Bulls & Cows arcade below.",
     metrics: [
-      { value: "2.6× EV", label: "Outperformed Baseline", detail: "Pyro + CFR Poker decision agent", tone: "text-primary" },
-      { value: "1M+", label: "Monte Carlo Rollouts", detail: "Counterfactual Regret Minimization", tone: "text-amber-500" },
-      { value: "Sub-ms", label: "Bi-Directional Sync", detail: "Vue.js, Node.js & Socket.io Royale", tone: "text-accent" },
+      { value: "10 Games", label: "Card Club Engine", detail: "Polymorphic state machine & AI bots", tone: "text-primary" },
+      { value: "2.6× EV", label: "Outperformed Baseline", detail: "Pyro + CFR Poker decision agent", tone: "text-amber-500" },
+      { value: "Sub-ms", label: "Bi-Directional Sync", detail: "Socket.IO Fog-of-War & Wordle Royale", tone: "text-accent" },
       { value: "4-Letter", label: "Bulls & Cows Live", detail: "Playable deduction arcade below", tone: "text-violet-400" },
     ],
   },
@@ -307,23 +307,23 @@ const Hero = () => {
                 className={`absolute -inset-3 rounded-[2rem] bg-gradient-to-tr ${currentFrame.glowColor} blur-2xl opacity-80 transition-all duration-700`}
               />
 
-              <div className="bento-card rounded-[1.85rem] p-3.5 sm:p-4 relative overflow-hidden">
-                {/* Top Analog Camera Header */}
-                <div className="flex items-center justify-between gap-2 pb-3 px-1">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-accent" />
-                    <span className="ml-1.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                      {currentFrame.filmStock}
+              <div className="bento-card rounded-[1.85rem] p-3.5 sm:p-4 relative overflow-hidden flex flex-col gap-3">
+                {/* Top Header (Single Clean Line, No Film Stock Text) */}
+                <div className="flex items-center justify-between gap-2 px-1">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-primary shrink-0" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-accent shrink-0" />
+                    <span className="ml-1 font-mono text-[11px] text-muted-foreground truncate">
+                      {currentFrame.coords}
                     </span>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border border-primary/40 bg-primary/15 text-primary">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border border-primary/40 bg-primary/15 text-primary shrink-0">
                     Shot by Mohit
                   </span>
                 </div>
 
-                {/* High-Priority Color-Graded Landscape Frame */}
+                {/* High-Priority Landscape Frame (Unobstructed) */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#120F0D] border border-border">
                   <img
                     src={currentFrame.src}
@@ -333,40 +333,23 @@ const Hero = () => {
                     height={900}
                     className="w-full h-full object-cover object-center transition-all duration-700 scale-[1.01] hover:scale-105"
                   />
+                </div>
 
-                  {/* Top-Right Translucent GPS Telemetry Pill */}
-                  <div className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-black/25 backdrop-blur-[4px] border border-white/15 flex items-center gap-1.5">
-                    <Sun className="w-3 h-3 text-amber-300" />
-                    <span
-                      className="font-mono text-[10px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
-                      style={{ color: "#FAF6F0" }}
-                    >
-                      {currentFrame.coords}
-                    </span>
-                  </div>
-
-                  {/* Translucent Bottom Glass Caption (See-Through, No Route Button) */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 px-3.5 py-2 rounded-xl bg-black/25 backdrop-blur-[5px] border border-white/15">
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-amber-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
-                      {currentFrame.place}
-                    </p>
-                    <h2
-                      className="font-display text-sm sm:text-base font-semibold mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
-                      style={{ color: "#FAF6F0" }}
-                    >
-                      {currentFrame.title}
-                    </h2>
-                    <p
-                      className="text-xs mt-0.5 line-clamp-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]"
-                      style={{ color: "#EFE8DF" }}
-                    >
-                      {currentFrame.quote}
-                    </p>
-                  </div>
+                {/* Clean Caption Strip Below Image (No Overlap) */}
+                <div className="px-3.5 py-2.5 rounded-xl bg-secondary/45 border border-border">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+                    {currentFrame.place}
+                  </p>
+                  <h2 className="font-display text-sm sm:text-base font-semibold text-foreground mt-0.5">
+                    {currentFrame.title}
+                  </h2>
+                  <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
+                    {currentFrame.quote}
+                  </p>
                 </div>
 
                 {/* Interactive Filmstrip Selector below the frame */}
-                <div className="grid grid-cols-3 gap-2.5 mt-3">
+                <div className="grid grid-cols-3 gap-2.5">
                   {HERO_FRAMES.map((frame, i) => (
                     <button
                       key={frame.src}

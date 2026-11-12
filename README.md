@@ -26,7 +26,11 @@ This portfolio is crafted as an interactive engineering and photography showcase
 
 ## 💼 Experience & Education
 
-### **Vera Beauty** · *Software Developer Intern* *(May 2025 – Aug 2025 · Remote, CA)*
+### **LEAP Consultants LLC (MindSpark)** · *AWS Cloud Developer Intern* *(Oct 2026 – Present · Remote, USA)*
+- Contributing to production cloud engineering initiatives on the MindSpark development team, building and orchestrating serverless backend workflows using **AWS Lambda**, **AWS Step Functions**, **Amazon API Gateway**, **Aurora RDS (PostgreSQL)**, **Amazon S3**, and **Amazon SES**.
+- Delivering production-ready cloud services with structured error handling, pre-deployment validation, and comprehensive AWS architecture & dependency documentation.
+
+### **Vera Beauty** · *Software Developer Intern* *(June 2025 – Aug 2025 · Tempe, AZ / Remote)*
 - Engineered a **Computer Vision facial analysis pipeline** extracting **68 facial landmarks** to compute structural ratios and recommend personalized aesthetic treatments.
 - Built an **Airbnb-style med-spa discovery and booking platform** connecting users with verified clinics, treatment catalogs, and real-time appointment scheduling.
 
@@ -47,10 +51,11 @@ This portfolio is crafted as an interactive engineering and photography showcase
 
 | # | Project | Stack | Highlights | Links |
 | :- | :--- | :--- | :--- | :--- |
-| **01** | **Wordle Royale** | `Vue.js` · `Node.js` · `Socket.io` · `WebSockets` | Real-time multiplayer word Battle Royale with `<15ms` bi-directional state sync, circular target routing, and live lobby matchmaking. | [Live Demo](https://wordle-royale-mu.vercel.app/) · [GitHub](https://github.com/MohitJain-git/wordle-royale) |
-| **02** | **Ultimate Texas Hold'em CFR Bot** | `Pyro` · `Monte Carlo` · `CFR` · `Python` | Probabilistic poker agent using **1,000,000+ Monte Carlo rollouts** and Counterfactual Regret Minimization to achieve **2.6× human baseline EV**. | [GitHub](https://github.com/MohitJain-git/UltimateTexasHoldem) |
+| **01** | **Card Club — Multiplayer Card Platform** | `React 19` · `TypeScript` · `Tailwind v4` · `Express 5` · `Socket.IO` | Real-time multiplayer web platform for **10 classic Indian & international card games** built on a unified TypeScript state-machine engine with per-player fog-of-war state sanitization, context-aware AI bots, and 60s disconnect recovery. | [Live Demo](https://card-game-rho-weld.vercel.app/) · [GitHub](https://github.com/MohitJain-git/CardGame) |
+| **02** | **Wordle Royale** | `Vue.js` · `Node.js` · `Socket.io` · `WebSockets` | Real-time multiplayer word Battle Royale with `<15ms` bi-directional state sync, circular target routing, and live lobby matchmaking. | [Live Demo](https://wordle-royale-mu.vercel.app/) · [GitHub](https://github.com/MohitJain-git/wordle-royale) |
 | **03** | **Nike Bot (Shoe La La)** | `LangChain` · `vLLM` · `Ollama` · `SQL` · `ETL` | Agentic sneaker assistant executing multi-step natural language reasoning via local LLMs, backed by an automated SQL ETL pipeline for price-drop alerts. | [GitHub](https://github.com/dnanava1/shoe-la-la) |
-| **04** | **DocFix — Intelligent Document Suite** | `Django` · `FastAPI` · `Python` · `NLP` | Full-stack document platform pairing a Django web tier with async FastAPI NLP microservices for summarization, sentiment, keyword extraction, and scraping. | [GitHub](https://github.com/MohitJain-git/DocFix) |
+| **04** | **Ultimate Texas Hold'em CFR Bot** | `Pyro` · `Monte Carlo` · `CFR` · `Python` | Probabilistic poker agent using **1,000,000+ Monte Carlo rollouts** and Counterfactual Regret Minimization to achieve **2.6× human baseline EV**. | [GitHub](https://github.com/MohitJain-git/UltimateTexasHoldem) |
+| **05** | **DocFix — Intelligent Document Suite** | `Django` · `FastAPI` · `Python` · `NLP` | Full-stack document platform pairing a Django web tier with async FastAPI NLP microservices for summarization, sentiment, keyword extraction, and scraping. | [GitHub](https://github.com/MohitJain-git/DocFix) |
 
 ---
 

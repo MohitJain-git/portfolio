@@ -6,6 +6,31 @@ const Experience = () => {
   const experiences = [
     {
       index: "01",
+      title: "AWS Cloud Developer Intern",
+      company: "LEAP Consultants LLC (MindSpark)",
+      location: "Remote, USA",
+      period: "October 2026 – Present",
+      type: "Cloud Engineering Internship",
+      description:
+        "Contributing to production cloud engineering initiatives on the MindSpark development team, building and orchestrating serverless backend workflows using AWS Lambda, AWS Step Functions, Amazon API Gateway, Aurora RDS (PostgreSQL), Amazon S3, and Amazon SES. Delivering production-ready services with structured error handling, pre-deployment validation, and comprehensive AWS architecture documentation.",
+      highlights: [
+        { metric: "AWS Serverless", detail: "Lambda, Step Functions & API Gateway" },
+        { metric: "Aurora RDS & S3", detail: "PostgreSQL persistence, S3 & SES" },
+        { metric: "Production Standards", detail: "End-to-end testing & transferable docs" },
+      ],
+      skills: [
+        "AWS Lambda",
+        "AWS Step Functions",
+        "Amazon API Gateway",
+        "Aurora RDS (PostgreSQL)",
+        "Amazon S3",
+        "Amazon SES",
+        "Serverless",
+        "Cloud Architecture",
+      ],
+    },
+    {
+      index: "02",
       title: "Software Engineering Intern (AI/ML)",
       company: "Vera Beauty Inc.",
       location: "Tempe, AZ / Remote",
@@ -21,7 +46,7 @@ const Experience = () => {
       skills: ["Computer Vision", "Python", "Machine Learning", "Full-Stack", "Mobile Integration"],
     },
     {
-      index: "02",
+      index: "03",
       title: "Graduate Student Assistant (Intro to AI — CSE 471)",
       company: "Arizona State University",
       location: "Tempe, AZ",
@@ -37,7 +62,7 @@ const Experience = () => {
       skills: ["Artificial Intelligence", "Probabilistic ML", "Reinforcement Learning", "Python", "Mentorship"],
     },
     {
-      index: "03",
+      index: "04",
       title: "Software Engineer (SDE-I)",
       company: "Jio Platforms Limited",
       location: "Mumbai, India",
@@ -53,7 +78,7 @@ const Experience = () => {
       skills: ["Python", "InsightFace", "OpenCV", "Detectron2", "PyTorch FER", "AWS SageMaker", "Elasticsearch", "Docker", "AWS Lambda"],
     },
     {
-      index: "04",
+      index: "05",
       title: "Software Tester Intern",
       company: "Jio Platforms Limited",
       location: "Mumbai, India",
@@ -89,7 +114,7 @@ const Experience = () => {
             </h2>
           </div>
           <p className="max-w-md text-sm text-muted-foreground sm:text-base">
-            From nationwide biometric platforms serving 42M+ users at Jio to computer-vision onboarding and med-spa platforms at Vera Beauty.
+            From serverless AWS cloud development at LEAP Consultants (MindSpark) and computer-vision onboarding at Vera Beauty to nationwide biometric platforms serving 42M+ users at Jio.
           </p>
         </div>
 

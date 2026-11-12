@@ -163,6 +163,37 @@ const SYSTEM_HIGHLIGHTS: SystemHighlight[] = [
       { value: "Pyro + CFR", label: "Probabilistic regret minimization" },
     ],
   },
+  {
+    id: "card-club",
+    tabLabel: "Card Club Engine",
+    tag: "Real-Time Multiplayer & Polymorphic State Machine",
+    title: "10-Game Unified Card Engine & Fog-of-War Sanitizer",
+    org: "Card Club · React 19, TypeScript, Express 5 & Socket.IO",
+    badgeClass: "border-primary/40 bg-primary/15 text-primary",
+    barGradient: "from-[#FF7A59] via-amber-400 to-emerald-400",
+    summary:
+      "Architected a single polymorphic TypeScript state-machine engine running 10 classic Indian and international card games with per-socket fog-of-war state sanitization, combinatorial hand evaluators, and context-aware AI bots.",
+    flowSteps: [
+      "GameSession State Machine",
+      "Combinatorial HandEvaluator",
+      "Per-Socket Fog-of-War Mask",
+      "React 19 Parlor UI & AI Bots",
+    ],
+    comparison: {
+      metricTitle: "Multi-Game Engine Reuse & Anti-Cheat Security",
+      baselineLabel: "Per-Game Hardcoded Servers",
+      baselineValue: "1 game / isolated codebase",
+      baselineWidthPercent: 20,
+      resultLabel: "Unified Polymorphic Engine + Per-Socket Sanitizer",
+      resultValue: "10 games · 0 leaked opponent cards",
+      resultWidthPercent: 100,
+    },
+    keyFacts: [
+      { value: "10 Card Games", label: "5 genres in 1 state machine" },
+      { value: "Fog-of-War", label: "Per-socket packet sanitization" },
+      { value: "60s Reconnect", label: "Grace timer & AI auto-play" },
+    ],
+  },
 ];
 
 const STACK_TICKER = [
