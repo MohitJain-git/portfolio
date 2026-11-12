@@ -7,22 +7,22 @@ const Experience = () => {
     {
       index: "01",
       title: "AWS Cloud Developer Intern",
-      company: "LEAP Consultants LLC (MindSpark)",
+      company: "MindSpark (LEAP Consultants LLC)",
       location: "Remote, USA",
       period: "October 2026 – Present",
       type: "Cloud Engineering Internship",
       description:
-        "Contributing to production cloud engineering initiatives on the MindSpark development team, building and orchestrating serverless backend workflows using AWS Lambda, AWS Step Functions, Amazon API Gateway, Aurora RDS (PostgreSQL), Amazon S3, and Amazon SES. Delivering production-ready services with structured error handling, pre-deployment validation, and comprehensive AWS architecture documentation.",
+        "Architected serverless pipelines using AWS Lambda, Step Functions, API Gateway, and S3, and optimized Aurora PostgreSQL data models, indexing, and connection pooling for low-latency queries. Delivering production-ready cloud services with structured error handling, pre-deployment validation, and comprehensive AWS architecture documentation.",
       highlights: [
-        { metric: "AWS Serverless", detail: "Lambda, Step Functions & API Gateway" },
-        { metric: "Aurora RDS & S3", detail: "PostgreSQL persistence, S3 & SES" },
-        { metric: "Production Standards", detail: "End-to-end testing & transferable docs" },
+        { metric: "Serverless Pipelines", detail: "AWS Lambda, Step Functions, API Gateway & S3" },
+        { metric: "Aurora PostgreSQL", detail: "Data models, indexing & connection pooling" },
+        { metric: "Low-Latency Cloud", detail: "Production-ready AWS architecture & SES" },
       ],
       skills: [
         "AWS Lambda",
         "AWS Step Functions",
         "Amazon API Gateway",
-        "Aurora RDS (PostgreSQL)",
+        "Aurora PostgreSQL",
         "Amazon S3",
         "Amazon SES",
         "Serverless",
